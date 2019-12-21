@@ -1,5 +1,7 @@
 {
   "name": "mtalkies",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

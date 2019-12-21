@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CommonService } from '../common.service';
+import { ConstantService } from '../constant.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+  	public commonService:CommonService,public constantService:ConstantService){
+
+  	}
+  	ngOnInit(){
+  		console.log('Init Called');
+  		this.commonService.postData(this.constantService.fetchData,{uuid:this.commonService.uuid}).then((res)=>{
+	      console.log('res',res);
+	    }).catch((e)=>{
+	      console.log('error',e);
+	    })
+  	}
 
 }
